@@ -46,6 +46,7 @@
                       $selectQuery = mysqli_query($con,"Select * from stk_users where username='$user'");
                       $rowUser = mysqli_fetch_assoc($selectQuery);
                       $role = $rowUser['role'];
+
                    $user_agent = $_SERVER['HTTP_USER_AGENT'];
                    function getBrowser(){
                        global $user_agent;
@@ -70,7 +71,7 @@
                         return $user_browser;
                    }
 
-                      function getOS() {
+                   function getOS() {
                         global $user_agent;
                         $os_platform  = "Unknown OS Platform";
 

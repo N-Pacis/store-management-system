@@ -40,12 +40,6 @@ else{
               echo "<div class='error-div'><i class='far fa-times-circle'></i>All fields are required!</div>";
           }
           else{
-              //connect to the database
-              $host = "localhost";
-              $user = "root";
-              $password = "";
-              $database = "Stock_DB";
-              $con = mysqli_connect($host,$user,$password,$database);
               if(!$con){
                   echo "<div class='error-div'><i class='far fa-times-circle'></i>Failed to connect due to.".mysqli_connect_error()."</div>";
               }

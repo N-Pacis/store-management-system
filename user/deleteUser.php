@@ -42,8 +42,9 @@ else{
                         echo "<div class='error-div'><i class='far fa-times-circle'></i>Unable to delete user due to.".mysqli_error($con)."</div>";
                     }
                     else{
-                        echo "<div class='success-div'><i class='far fa-check-circle'></i>Deleted successfully<br>";
-                        echo "<a href='view_users.php'>View Users</a></div>";
+                        echo "<div class='success-div'><i class='far fa-check-circle'></i>Deleted successfully<br></div>";
+                           session_unset();
+                           session_destroy();
                     }
               }
           }

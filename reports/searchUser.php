@@ -25,6 +25,11 @@ else{
 <?php   
    $current_page='reports';
    include('../utils/navigation.php');
+   $host = "localhost";
+   $user = "root";
+   $password = "";
+   $database = "Stock_DB";
+   $con = mysqli_connect($host,$user,$password,$database);
    if (!$con) {
      echo mysqli_connect_error();
     } 
