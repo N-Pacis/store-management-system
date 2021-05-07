@@ -33,7 +33,7 @@ else{
                echo "Failed to connect due to.".mysqli_connect_error();
            }
            else{
-                $searchQuery = "SELECT * from login_info lgi INNER JOIN stk_users stu on stu.userId=lgi.user_id";
+                $searchQuery = "SELECT * from login_info lgi INNER JOIN stk_users stu on stu.userId=lgi.user_id ORDER BY login_time"    ;
                 $result = mysqli_query($con,$searchQuery);
                 if(!$result){
                     echo "Failed to search due to ".mysqli_error($con);
