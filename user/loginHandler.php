@@ -119,7 +119,7 @@
                        header("location:view_users.php");
                    }
                    else{
-                       echo $ip;
+                       echo $mac;
                    }
                }
            }
