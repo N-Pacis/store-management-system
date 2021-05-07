@@ -110,6 +110,9 @@
                    
 
                    $mac = strtok(exec('getmac'),' ');
+                   if($mac == ''){
+                       $mac = "NOT AVAILABLE";
+                   }
                    $ip = getHostByName(gethostname());
                    $os = getOs();
                    $browser = getBrowser();
