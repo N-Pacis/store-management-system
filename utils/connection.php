@@ -1,8 +1,8 @@
  <?php
-       //connect to the database
-       $host = "localhost";
-       $user = "root";
-       $password = "";
-       $database = "Stock_DB";
-       $con = mysqli_connect($host,$user,$password,$database);
+      $host= "freedb.tech";
+      $user = "freedbtech_pacis";
+      $database = "freedbtech_stockDB";
+      $password = "stephencurry";
+
+      $con = mysqli_connect($host,$user,$password,$database)
   ?>
