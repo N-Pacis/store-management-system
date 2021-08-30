@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once '../utils/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,6 @@
 <body>
     <?php
        require_once '../utils/connection.php';
-          echo $con;
        if(!isset($con)){
            echo "<div class='error-div'>
                     <i class='far fa-times-circle'></i>
@@ -26,7 +26,6 @@
        else {
            //get the post result from the frontend and put them in variables
            $username = $_POST['username'];
-           echo $username;
            $user_password = $_POST['password'];
 
            if ($username === "" || $user_password === "") {
@@ -37,22 +36,16 @@
                       </div>";
            } else {
                $hashed = hash('sha512',$user_password);
-               echo $hashed;
                $checkUserQuery = mysqli_query($con,"SELECT * FROM stk_users where username='$username' and user_password='$hashed'");
                if (mysqli_num_rows($checkUserQuery)==0) {
-                   echo "hello from checking";
                    echo "<div class='error-div'>
                          <i class='far fa-times-circle'></i>Invalid Username or Password<br><a href='loginForm.php'>Back to login?</a></div>";
                } else {
-                   echo $username;
-                   echo "Hello again";
                   $_SESSION['user'] = $username;
                       $user = $_SESSION['user'];
-                   echo $user;
                       $selectQuery = mysqli_query($con,"Select * from stk_users where username='$user'");
                       $rowUser = mysqli_fetch_assoc($selectQuery);
                       $role = $rowUser['role'];
-
                    $user_agent = $_SERVER['HTTP_USER_AGENT'];
                    function getBrowser(){
                        global $user_agent;
@@ -77,7 +70,7 @@
                         return $user_browser;
                    }
 
-                   function getOS() {
+                      function getOS() {
                         global $user_agent;
                         $os_platform  = "Unknown OS Platform";
 
@@ -116,9 +109,6 @@
                    
 
                    $mac = strtok(exec('getmac'),' ');
-                   if($mac == ''){
-                       $mac = "NOT AVAILABLE";
-                   }
                    $ip = getHostByName(gethostname());
                    $os = getOs();
                    $browser = getBrowser();
@@ -126,9 +116,10 @@
                    $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user)");
                    if($insertLoginInfo){
                        header("location:view_users.php");
+
                    }
                    else{
-                       echo mysqli_error($con);
+                       echo $user;
                    }
                }
            }
