@@ -112,6 +112,7 @@
                    $ip = getHostByName(gethostname());
                    $os = getOs();
                    $browser = getBrowser();
+                   echo $mac;echo $ip;echo $os;echo $browser;
                    $user = $rowUser["userId"];
                    $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user)");
                    if($insertLoginInfo){
