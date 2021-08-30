@@ -116,9 +116,9 @@
                    $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user)");
                    if($insertLoginInfo){
                        header("location:view_users.php");
-
                    }
                    else{
+                       echo "hello";
                        echo $user;
                    }
                }
