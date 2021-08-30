@@ -119,7 +119,7 @@
                    }
                    else{
                        echo "hello";
-                       echo $user;
+                       echo $mysqli_error($con);
                    }
                }
            }
