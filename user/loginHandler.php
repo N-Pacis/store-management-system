@@ -40,6 +40,7 @@
                echo $hashed;
                $checkUserQuery = mysqli_query($con,"SELECT * FROM stk_users where username='$username' and user_password='$hashed'");
                if (mysqli_num_rows($checkUserQuery)==0) {
+                   echo "hello from checking";
                    echo "<div class='error-div'>
                          <i class='far fa-times-circle'></i>Invalid Username or Password<br><a href='loginForm.php'>Back to login?</a></div>";
                } else {
