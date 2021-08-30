@@ -37,6 +37,7 @@
                       </div>";
            } else {
                $hashed = hash('sha512',$user_password);
+               echo $hashed;
                $checkUserQuery = mysqli_query($con,"SELECT * FROM stk_users where username='$username' and user_password='$hashed'");
                if (mysqli_num_rows($checkUserQuery)==0) {
                    echo "<div class='error-div'>
@@ -44,6 +45,7 @@
                } else {
                   $_SESSION['user'] = $username;
                       $user = $_SESSION['user'];
+                   echo $user;
                       $selectQuery = mysqli_query($con,"Select * from stk_users where username='$user'");
                       $rowUser = mysqli_fetch_assoc($selectQuery);
                       $role = $rowUser['role'];
