@@ -44,6 +44,8 @@
                    echo "<div class='error-div'>
                          <i class='far fa-times-circle'></i>Invalid Username or Password<br><a href='loginForm.php'>Back to login?</a></div>";
                } else {
+                   echo $username;
+                   echo "Hello again";
                   $_SESSION['user'] = $username;
                       $user = $_SESSION['user'];
                    echo $user;
