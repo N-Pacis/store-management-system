@@ -114,7 +114,7 @@
                    $os = getOs();
                    $browser = getBrowser();
                    echo $mac;echo $ip;echo $os;echo $browser;
-                   $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user_id)");
+                   $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user_id)") or die(mysqli_error($con));
                    if($insertLoginInfo){
                        header("location:view_users.php");
                    }
