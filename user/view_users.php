@@ -69,9 +69,9 @@ else{
                 }
         }
     }
-    if($role == 1){
-        echo "<a class='register-link' href='userRegistration.php'>Register A User</a>";
-    }
+    //if($role == 1){
+        //echo "<a class='register-link' href='userRegistration.php'>Register A User</a>";
+    //}
     include('../utils/footer.php');
 ?>
 </body>
