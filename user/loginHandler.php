@@ -16,6 +16,7 @@
 <body>
     <?php
        require_once '../utils/connection.php';
+          echo $con;
        if(!isset($con)){
            echo "<div class='error-div'>
                     <i class='far fa-times-circle'></i>
@@ -25,6 +26,7 @@
        else {
            //get the post result from the frontend and put them in variables
            $username = $_POST['username'];
+           echo $username;
            $user_password = $_POST['password'];
 
            if ($username === "" || $user_password === "") {
