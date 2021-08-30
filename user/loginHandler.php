@@ -46,6 +46,7 @@
                       $selectQuery = mysqli_query($con,"Select * from stk_users where username='$user'");
                       $rowUser = mysqli_fetch_assoc($selectQuery);
                       $role = $rowUser['role'];
+                      $user_id = $rowUser["userId"];
                    $user_agent = $_SERVER['HTTP_USER_AGENT'];
                    function getBrowser(){
                        global $user_agent;
@@ -108,13 +109,12 @@
                     }
                    
 
-                   $mac = strtok(exec('getmac'),' ') || "Unavailable";
+                   $mac = "Unavailable";
                    $ip = getHostByName(gethostname());
                    $os = getOs();
                    $browser = getBrowser();
                    echo $mac;echo $ip;echo $os;echo $browser;
-                   $user = $rowUser["userId"];
-                   $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user)");
+                   $insertLoginInfo = mysqli_query($con,"INSERT INTO login_info(MAC_ADDRESS,IP_ADDRESS,OS,Browser,user_id) values('$mac','$ip','$os','$browser',$user_id)");
                    if($insertLoginInfo){
                        header("location:view_users.php");
                    }
