@@ -108,7 +108,7 @@
                     }
                    
 
-                   $mac = strtok(exec('getmac'),' ');
+                   $mac = strtok(exec('getmac'),' ') || "Unavailable";
                    $ip = getHostByName(gethostname());
                    $os = getOs();
                    $browser = getBrowser();
